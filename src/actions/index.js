@@ -1,10 +1,12 @@
+import { CREATE_BOOK, REMOVE_BOOK } from '../Actions';
+
 const createBook = (book) => ({
-  type: 'CREATE_BOOK',
+  type: CREATE_BOOK,
   payload: book,
 });
 
 const removeBook = (book) => ({
-  type: 'REMOVE_BOOK',
+  type: REMOVE_BOOK,
   payload: book,
 });
 
