@@ -7,7 +7,9 @@ import App from './components/App';
 import reducers from './reducers/index';
 // import { books } from './categories/Categories';
 
-const store = createStore(reducers);
+const initialState = { Book1: { id: Math.random, title: 'The Savior’s Champion', category: 'Fantasy' }, Book2: { id: Math.random, title: 'The Hobbit', category: 'Adventure' }, Book3: { id: Math.random, title: 'Romeo and Juliet', category: 'Classic' } };
+
+const store = createStore(reducers, initialState);
 
 ReactDOM.render(
   <React.StrictMode>
