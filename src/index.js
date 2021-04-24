@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './components/App';
 import reducers from './reducers/index';
+// import { books } from './categories/Categories';
 
 const store = createStore(reducers);
 
