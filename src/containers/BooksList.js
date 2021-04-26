@@ -16,7 +16,10 @@ function BooksList({ books }) {
   );
 }
 
-const mapStateToProps = (state) => ({ books: state.books });
+const mapStateToProps = (state) => {
+  const { books } = state;
+  return { books };
+};
 
 export default connect(mapStateToProps)(BooksList);
 

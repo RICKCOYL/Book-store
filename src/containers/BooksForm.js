@@ -2,32 +2,44 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { categories } from '../categories/Categories';
-import { CREATE_BOOK } from '../Actions';
+import { createBook } from '../actions/index';
 
-function BooksForm() {
+function BooksForm({ createBook }) {
   const [values, setValues] = useState({
+    id: '',
     title: '',
     category: 'Action',
   });
 
   const handleChange = (e) => {
-    const { value } = e.target;
-    e.persist();
     setValues((values) => ({
       ...values,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const { title, category } = values;
+
+    createBook({
+      id: Math.floor(Math.random() * 11).toString(),
+      title,
+      category,
+    });
+
+    setValues({
+      title: '',
+      category: '',
+    });
   };
 
   return (
     <div>
       <h3>Add New Book</h3>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <span>Title: </span>
           <br />
@@ -44,14 +56,14 @@ function BooksForm() {
             ))}
           </select>
         </div>
-        <button onSubmit={handleSubmit} type="submit">Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  createBook: () => dispatch({ type: CREATE_BOOK }),
-});
+BooksForm.propTypes = {
+  createBook: PropTypes.func.isRequired,
+};
 
-export default connect(null, mapDispatchToProps)(BooksForm);
+export default connect(null, { createBook })(BooksForm);
