@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -25,12 +23,13 @@ function BooksForm({ createBook }) {
     const { title, category } = values;
 
     createBook({
-      id: Math.floor(Math.random() * 11).toString(),
+      id: Math.floor(Math.random() * 1111).toString(),
       title,
       category,
     });
 
     setValues({
+      id: '',
       title: '',
       category: '',
     });
