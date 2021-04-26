@@ -28,8 +28,6 @@ const initialState = {
 };
 
 const store = createStore(reducers, initialState);
-// eslint-disable-next-line no-console
-console.log(store.getState());
 
 ReactDOM.render(
   <React.StrictMode>
