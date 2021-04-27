@@ -6,8 +6,8 @@ function App() {
   return (
     <div>
       <Navbar />
-      <BooksForm />
       <BooksList />
+      <BooksForm />
     </div>
   );
 }

@@ -69,11 +69,24 @@ h1 {
 }
 
 .title-input {
-  width: 664px;
-  height: 45px;
-  margin: 19px 34px 0 0;
+  width: 66px;
+  height: 20px;
   padding: 13px 571px 13px 17px;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background-color: var(--white);
+}
+
+.cat-input {
+  width: 10px;
+  height: 20px;
+  padding: 13px 30px 13px 17px;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: var(--white);
+}
+
+form {
+  display: flex;
+  align-items: center;
 }

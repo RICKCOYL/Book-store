@@ -42,12 +42,12 @@ function BooksForm({ createBook }) {
         <div>
           <span>Title: </span>
           <br />
-          <input type="text" name="title" id="title" placeholder="enter book name" value={values.title} onChange={handleChange} />
+          <input className="title-input" type="text" name="title" id="title" placeholder="enter book name" value={values.title} onChange={handleChange} />
         </div>
         <div>
           <span>Category: </span>
           <br />
-          <select name="category" id="category" value={values.category} onChange={handleChange}>
+          <select className="cat-input" name="category" id="category" value={values.category} onChange={handleChange}>
             {categories.map((category) => (
               <option key={`${category}`} value={category}>
                 {category}
@@ -55,7 +55,7 @@ function BooksForm({ createBook }) {
             ))}
           </select>
         </div>
-        <button type="submit">Submit</button>
+        <button className="btn btn-primary" type="submit">Submit</button>
       </form>
     </div>
   );
