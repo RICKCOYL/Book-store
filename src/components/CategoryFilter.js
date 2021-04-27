@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { categories } from '../categories/Categories';
 
-const CategoryFilter = () => (
+const CategoryFilter = ({ onSelectHandler }) => (
   <div>
-    <select name="category" id="category">
-      {['ALL', ...categories].map((category) => (
+    <select name="category" id="category" onChange={(e) => onSelectHandler(e.target.value)}>
+      {['All', ...categories].map((category) => (
         <option key={`${category}`} value={category}>
           {category}
         </option>
@@ -12,5 +13,9 @@ const CategoryFilter = () => (
     </select>
   </div>
 );
+
+CategoryFilter.propTypes = {
+  onSelectHandler: PropTypes.func.isRequired,
+};
 
 export default CategoryFilter;
