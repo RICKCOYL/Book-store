@@ -1,12 +1,12 @@
 import { CHANGE_FILTER } from '../Actions';
 
-const filter = (state = 'ALL', action) => {
+const catfilter = (state = 'All', action) => {
   switch (action.type) {
     case CHANGE_FILTER:
-      return { ...state, category: action.filter };
+      return action.payload;
     default:
       return state;
   }
 };
 
-export default filter;
+export default catfilter;
