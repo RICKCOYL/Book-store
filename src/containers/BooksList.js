@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Book from '../components/Book';
-import * as actions from '../actions';
+import * as actions from '../actions/index';
 
 function BooksList({ books, removeBook }) {
   const handleRemoveBook = (e, book) => {
