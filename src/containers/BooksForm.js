@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { categories } from '../categories/Categories';
@@ -36,27 +38,23 @@ function BooksForm({ createBook }) {
   };
 
   return (
-    <div>
-      <h3>Add New Book</h3>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <span>Title: </span>
-          <br />
-          <input className="title-input" type="text" name="title" id="title" placeholder="enter book name" value={values.title} onChange={handleChange} />
-        </div>
-        <div>
-          <span>Category: </span>
-          <br />
-          <select className="cat-input" name="category" id="category" value={values.category} onChange={handleChange}>
+    <div className="form-container container">
+      <h3 className="mt-4 mb-3">Add New Book</h3>
+      <Form onSubmit={handleSubmit} className="add-book-form d-flex mt-5">
+        <Form.Group className="addbook-input">
+          <Form.Control type="input" className="title-input" name="title" id="title" placeholder="enter book name" value={values.title} onChange={handleChange} />
+        </Form.Group>
+        <div className="addbook-right">
+          <Form.Control as="select" className="cat-input" name="category" id="category" value={values.category} onChange={handleChange}>
             {categories.map((category) => (
               <option key={`${category}`} value={category}>
                 {category}
               </option>
             ))}
-          </select>
+          </Form.Control>
+          <Button className="addbook-btn" type="submit">Submit</Button>
         </div>
-        <button className="btn btn-primary" type="submit">Submit</button>
-      </form>
+      </Form>
     </div>
   );
 }

@@ -18,23 +18,15 @@ function BooksList({ books, removeBook, filter }) {
   };
 
   return (
-    <div>
-      <CategoryFilter onSelectHandler={handleFilterChange} />
-      <table>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          {books.map((book) => (
-            <Book book={book} key={book.id} handleRemove={handleRemoveBook} />
-          ))}
-        </tbody>
-      </table>
+    <div className="book-list">
+      <div className="filter-container">
+        <CategoryFilter onSelectHandler={handleFilterChange} />
+      </div>
+      <div className="book-cards">
+        {books.map((book) => (
+          <Book book={book} key={book.id} handleRemove={handleRemoveBook} />
+        ))}
+      </div>
     </div>
   );
 }
